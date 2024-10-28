@@ -33,20 +33,20 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <div className="relative">
-      <div className="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full shadow-inner">
+    <div className="relative z-50">
+      <div className="flex  items-center bg-gray-100 dark:bg-gray-700 rounded-full shadow-inner">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Search location..."
-          className="w-full px-4 py-2 rounded-full bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none text-sm sm:text-base"
+          className="w-full px-5 py-3 rounded-full bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none text-base sm:text-lg"
         />
         <button
           onClick={handleSearch}
-          className="px-3 py-2 text-blue-500 hover:text-blue-600 focus:outline-none transition-colors duration-300"
+          className="px-4 py-3 text-blue-500 hover:text-blue-600 focus:outline-none transition-colors duration-300"
         >
-          <Search size={20} />
+          <Search size={24} />
         </button>
       </div>
       <AnimatePresence>
@@ -55,13 +55,13 @@ export default function SearchBar({ onSearch }) {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute z-50 w-full mt-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg border border-gray-200/40 dark:border-gray-700/40 max-h-48 sm:max-h-64 overflow-y-auto"
+            className="absolute z-50 w-full mt-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg border border-gray-200/40 dark:border-gray-700/40 max-h-60 sm:max-h-80 overflow-y-auto top-full left-0"
           >
             <div className="overflow-y-auto custom-scrollbar">
               {suggestions.map((city, index) => (
                 <motion.button
                   key={index}
-                  className="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200 text-sm sm:text-base"
+                  className="w-full px-5 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200 text-base sm:text-lg"
                   onClick={() => {
                     onSearch(city);
                     setInput("");

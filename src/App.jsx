@@ -37,7 +37,7 @@ export default function Component() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-sky-400 via-blue-400 to-indigo-500 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 flex flex-col items-center justify-start p-4 sm:p-6 font-sans transition-all duration-300">
-      <div className="w-full max-w-md space-y-4 sm:space-y-6">
+      <div className="w-full max-w-lg space-y-4 sm:space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function Component() {
           className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-gray-200/40 dark:border-gray-700/40"
         >
           <div className="p-4 sm:p-6">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-gray-900 dark:text-gray-100 tracking-wide">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-5 text-gray-900 dark:text-gray-100 tracking-wide">
               Forecast Frenzy
             </h1>
             <SearchBar onSearch={handleSearch} />
