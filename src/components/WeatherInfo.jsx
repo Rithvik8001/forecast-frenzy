@@ -1,4 +1,3 @@
-// components/WeatherInfo.js
 import React from "react";
 import {
   Sun,
@@ -10,22 +9,23 @@ import {
 } from "lucide-react";
 
 const getWeatherIcon = (condition) => {
+  const iconSize = 36;
   switch (condition.toLowerCase()) {
     case "clear":
-      return <Sun size={48} className="text-[#FF9500]" />;
+      return <Sun size={iconSize} className="text-yellow-500" />;
     case "clouds":
-      return <Cloud size={48} className="text-[#8E8E93]" />;
+      return <Cloud size={iconSize} className="text-gray-400" />;
     case "rain":
-      return <CloudRain size={48} className="text-[#007AFF]" />;
+      return <CloudRain size={iconSize} className="text-blue-500" />;
     case "snow":
-      return <CloudSnow size={48} className="text-[#64D2FF]" />;
+      return <CloudSnow size={iconSize} className="text-blue-200" />;
     case "thunderstorm":
-      return <CloudLightning size={48} className="text-[#FF9F0A]" />;
+      return <CloudLightning size={iconSize} className="text-yellow-400" />;
     case "mist":
     case "fog":
-      return <CloudFog size={48} className="text-[#8E8E93]" />;
+      return <CloudFog size={iconSize} className="text-gray-300" />;
     default:
-      return <Cloud size={48} className="text-[#8E8E93]" />;
+      return <Cloud size={iconSize} className="text-gray-400" />;
   }
 };
 
@@ -33,44 +33,44 @@ export default function WeatherInfo({ data }) {
   const { main, weather, wind } = data;
 
   return (
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold text-[#1D1D1F] dark:text-white">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-100">
           {data.name}
         </h2>
         {getWeatherIcon(weather[0].main)}
       </div>
       <div className="flex justify-between items-end mb-6">
         <div>
-          <p className="text-5xl font-thin text-[#1D1D1F] dark:text-white">
+          <p className="text-4xl sm:text-5xl font-thin text-gray-900 dark:text-gray-100">
             {Math.round(main.temp)}°F
           </p>
-          <p className="text-lg text-[#6E6E73] dark:text-[#98989D] capitalize">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 capitalize">
             {weather[0].description}
           </p>
         </div>
         <div className="text-right">
-          <p className="text-[#6E6E73] dark:text-[#98989D]">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
             H:{Math.round(main.temp_max)}° L:{Math.round(main.temp_min)}°
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 text-sm">
-        <div className="bg-[#F5F5F7] dark:bg-[#2C2C2E] rounded-xl p-3">
-          <p className="text-[#6E6E73] dark:text-[#98989D]">Humidity</p>
-          <p className="font-semibold text-[#1D1D1F] dark:text-white">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 text-xs sm:text-sm">
+        <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-2 sm:p-3">
+          <p className="text-gray-600 dark:text-gray-400">Humidity</p>
+          <p className="font-semibold text-gray-900 dark:text-gray-100">
             {main.humidity}%
           </p>
         </div>
-        <div className="bg-[#F5F5F7] dark:bg-[#2C2C2E] rounded-xl p-3">
-          <p className="text-[#6E6E73] dark:text-[#98989D]">Wind</p>
-          <p className="font-semibold text-[#1D1D1F] dark:text-white">
+        <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-2 sm:p-3">
+          <p className="text-gray-600 dark:text-gray-400">Wind</p>
+          <p className="font-semibold text-gray-900 dark:text-gray-100">
             {Math.round(wind.speed)} mph
           </p>
         </div>
-        <div className="bg-[#F5F5F7] dark:bg-[#2C2C2E] rounded-xl p-3">
-          <p className="text-[#6E6E73] dark:text-[#98989D]">Feels like</p>
-          <p className="font-semibold text-[#1D1D1F] dark:text-white">
+        <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-2 sm:p-3">
+          <p className="text-gray-600 dark:text-gray-400">Feels like</p>
+          <p className="font-semibold text-gray-900 dark:text-gray-100">
             {Math.round(main.feels_like)}°F
           </p>
         </div>
